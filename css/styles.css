@@ -1,0 +1,483 @@
+:root {
+    --primary-color: #460C53;
+    --white-color: #FFFFFF;
+    --main-gap: 3rem;
+    --lightgray: #eee;
+    --secondary-color: crimson;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.close-menu{
+    display: none;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+}
+
+.main-bg {
+    background-image: url('../img/confetti-doodles.svg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat; /* Para evitar repetições do fundo */
+    width: 100%;
+    color: var(--white-color);
+    min-height: 100vh; /* Garante que ocupe a altura da tela */
+    display: flex; /* Garante que o conteúdo ocupe o espaço */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+}
+
+/* Conteúdo centralizado e com espaçamento */
+.main-content {
+    width: 100%;
+    max-width: 120rem; /* Limite máximo de largura */
+    margin: 0 auto;
+    padding: 8rem var(--main-gap);
+}
+
+.section {
+    min-height: 100vh; /* Garante a altura mínima da tela */
+    width: 100%;
+}
+
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+html, body {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    font-family: 'Open Sans', sans-serif;
+    color: var(--primary-color);
+    height: 100%;
+}
+
+h1, h2, h3, h4, h5 ,h6{
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-size: 6rem;
+}
+
+h2 {
+    font-size: 6rem;
+    margin-bottom: 5rem;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+h3 {
+    font-size: 5rem;
+}
+
+h4 {
+    font-size: 4.5rem;
+}
+
+h5 {
+    font-size: 4rem;
+}
+
+h6 {
+    font-size: 4.5rem;
+}
+
+.top3{
+    min-height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    max-width: 64rem;
+    text-align: center;
+}
+
+.top3 p{
+    font-size: 1.8rem;
+}
+
+p{
+    margin-bottom: 3rem;
+}
+
+.menu {
+    display: flex;
+    position: fixed;
+    background-color: white;
+    top: 0;
+    left: 0;
+    right: 0;
+    max-width: 100%;
+    border-bottom: 0.2rem solid var(--lightgray);
+    z-index: 1;
+}
+
+.menu-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.menu h1 {
+    font-size: 2.3rem;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+}
+
+.menu ul li a {
+    display: block;
+    font-size: 1.8rem;
+    padding: 2rem;
+    position: relative;
+    transition: all 200ms linear;
+}
+
+
+
+.menu ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    width: 0;
+    height: 0.2rem;
+    background-color: crimson;
+    transition: all 200ms linear;
+}
+
+.menu ul li a:hover::after {
+    width: 50%;
+    left: 25%;
+}
+
+.menu ul li a:hover {
+    background-color: rgba(207, 207, 207, 0.26);
+}
+
+.grid {
+    display: grid;
+    position: relative;
+    align-items: center;
+    grid-template-columns: 1fr 6fr;
+    gap: var(--main-gap);
+    min-height: 100vh;
+}
+
+.grid .col {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+}
+
+.grid .col h2{
+    margin-bottom: 3rem;
+    line-height: 1.2;
+}
+
+.grid .col p{
+    font-size: 2rem;
+    line-height: 1.5;
+}
+
+.grid .col img {
+    max-width: 100%;
+    height: auto;
+}
+
+.top3 {
+    display: flex;
+    direction: column;
+    justify-content: center;
+    flex: column nowrap;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    max-width: 64rem;
+}
+
+.grid-two {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: var(--main-gap);
+    counter-reset: grid-counter;
+}
+
+.grid-two .col-two p {
+    font-size: 1.8rem;
+}
+
+.grid-two h3 {
+    font-size: 3rem;
+    position: relative;
+    padding-left: 5rem;
+    padding-bottom: 3rem;
+}
+
+.grid-two h3::before{
+    counter-increment: grid-counter;
+    content: counter(grid-counter);
+    position: absolute;
+    font-size: 8rem;
+    font-style: italic;
+    top: -4rem;
+    left: -2rem;
+    transform: rotate(5deg);
+}
+
+.grid-two .col-two:nth-child(1) {
+    grid-column: 1 / span 3;
+    padding-bottom: 5rem;
+}
+
+.grid-three {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1rem; /* Adiciona um espaço entre os itens da grade */
+    grid-template-rows: auto; /* Ajusta a altura das linhas automaticamente */
+}
+
+/* Estilo para cada item na grade */
+.grid-three .col-three {
+    grid-column: 1 / span 3; /* Span across all three columns */
+    text-align: start;
+    text-transform: uppercase;
+}
+
+.grid-three .col-three p {
+    font-size: 1.5rem;
+    padding-top: 2rem;
+    text-transform: none;
+}
+
+/* Estilo para imagens na grade */
+.grid-three .col-image {
+    display: flex;
+    justify-content: center; /* Centraliza a imagem horizontalmente */
+    align-items: center; /* Centraliza a imagem verticalmente */
+    overflow: hidden; /* Esconde o excesso da imagem que ultrapassar o contêiner */
+}
+
+.grid-three .col-image img {
+    width: 100%; /* Garante que a imagem ocupe 100% da largura do contêiner */
+    height: auto; /* Mantém a proporção da imagem */
+    transition: transform 1s ease;
+    transform-origin: center center;
+}
+
+.grid-three .col-image img:hover {
+    transform: translate(-1%, -1%) scale(1.1);
+    border-radius: 37.33%;
+}
+
+table {
+    min-width: 36rem;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table td, table th {
+    border: 0.1rem solid var(--lightgray);
+    padding: 0.5rem;
+    white-space: nowrap;
+}
+
+table td {
+    text-align: left;
+    font-size: 1.6rem;
+}
+
+table th {
+    text-align: center;
+    font-size: 2.8rem;
+}
+
+tfoot td, table th {
+    background-color: var(--lightgray);
+}
+
+table caption {
+    font-style: italic;
+    font-size: 1rem;
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+.resposive-table {
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.contact-form{
+    grid-column: span 2;
+}
+
+.contact-form fieldset {
+    border: none;
+}
+
+.form-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--main-gap);
+}
+
+.form-group {
+    flex-grow: 1 1 400px;
+}
+
+.form-group label{
+    display: block;
+    font-size: 1.8rem;
+    margin: 1rem 0;
+}
+
+.form-group input, textarea {
+    border: none;
+    background-color: var(--white-color);
+    padding: 1.5rem 2rem;
+    width: 100%;
+}
+
+div .full-width {
+    width: 100%;
+    flex: 1 1 100%;
+}
+
+.form-group button{
+    border: 0.5rem solid var(--white-color);
+    background-color: rgba(255, 0, 0, 0);
+    color: var(--white-color);
+    padding:  1.5rem 2rem;
+    font-size: 3rem;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+}
+
+.form-group button:hover{
+    border: 0.5rem solid var(--primary-color);
+    background-color: var(--white-color);
+    color: var(--primary-color);
+}
+
+.form-group ::placeholder{
+    color: rgba(156, 156, 156, 0.705);
+}
+
+.form-group input:focus, .form-group textarea:focus{
+    box-shadow: 0 0 5px var(--secondary-color);
+}
+
+#footer {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 1.6rem;
+    padding: 3rem 0;
+}
+
+@media (max-width: 800px) {
+    div.main-content.grid{
+        grid-template-columns: 1fr;
+    }
+
+    .grid-two {
+        grid-template-columns: 1fr; /* Muda para uma única coluna */
+        grid-template-rows: auto; /* Ajusta a altura das linhas automaticamente */
+        gap: var(--main-gap); /* Mantém o espaçamento entre os itens */
+    }
+
+    .grid-two .col-two:nth-child(1) {
+        grid-column: 1; /* Faz com que o item ocupe apenas uma coluna */
+        padding-bottom: 2rem; /* Ajusta o padding para telas menores */
+    }
+
+    .grid-three {
+        grid-template-columns: 1fr; /* Altera para uma coluna */
+        grid-template-rows: auto; /* Ajusta a altura das linhas automaticamente */
+    }
+
+    .grid-three .col-three {
+        grid-column: 1; /* Altera para ocupar uma única coluna */
+    }
+
+    .grid-three .col-image {
+        width: 100%; /* Garante que o contêiner da imagem ocupe 100% da largura */
+        max-width: 100%; /* Garante que a imagem não ultrapasse a largura do contêiner */
+        height: auto; /* Ajusta a altura automaticamente */
+    }
+
+    .grid-three .col-image img {
+        width: 50%; /* Garante que a imagem ocupe 100% da largura do contêiner */
+        height: auto; /* Mantém a proporção da imagem */
+    }
+
+    .menu{
+        bottom: 0;
+        text-align: center;
+        display: none;
+    }
+
+    .menu-content, .menu-content ul {
+        flex-direction: column;
+        justify-content: center;
+    }
+    .menu-content{
+        height: 100vh;
+    }
+
+    .close-menu{
+        position: fixed;
+        z-index: 2;
+        top: 0;
+        left: 0;
+    }
+
+    .close-menu-label::after{
+        content: '☰';
+        position: fixed;
+        z-index: 2;
+        top: 2rem;
+        right: 2rem;
+        background-color: rgb(255, 255, 255);
+        color: black;
+        font-size: 3rem;
+        line-height: 3rem;
+        width: 3rem;
+        height: 3rem;
+        text-align: center;
+        padding: 0.5rem;
+        cursor: pointer;
+    }
+
+    .close-menu:checked~.menu{
+        display: block;
+    }
+
+    .close-menu:checked~.close-menu-label::after{
+        content: 'x';
+    }
+
+    table {
+        width: 100%; /* Garante que a tabela não ultrapasse a largura da tela */
+    }
+    
+    table td, table th {
+        font-size: 1.4rem; /* Diminui o tamanho da fonte em telas menores */
+        padding: 0.4rem; /* Ajusta o padding em telas menores */
+    }
+    
+}
